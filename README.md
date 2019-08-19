@@ -19,6 +19,7 @@ If you want to observe accuracy convergence in real-time (for you or your studen
 - ts
 - lints
 - exp3
+- random 
 
 **Dataset**: String
 - control
