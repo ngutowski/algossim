@@ -4,7 +4,8 @@
 In this version I have implemented most popular MAB and CMAB algorithms (to be completed): UCB1, EXP3, epsilon-Greedy, Thompson Sampling, LinUCB, and Linear Thompson Sampling (also known as Contextual Thompson Sampling).
 
 ## Datasets
-Algorithms can be simulated over several datasets that I found in Kaggle, and UCI Machine Learning: Control (artifically generated in full features and sparse features), Mushrooms, Statlog, Students Academic Performance, Recommendation System Angers Smart City (RSASM), CNAE-9, contextfree (which is contexte free CNAE-9 version),Covertype, Poker Hand 
+Algorithms can be simulated over several datasets that I found in Kaggle, and UCI Machine Learning: Control (artifically generated in full features and sparse features), Mushrooms, Statlog, Students Academic Performance, Recommendation System Angers Smart City (RSASM), CNAE-9, contextfree (which is contexte free CNAE-9 version).
+Since Covertype and Poker Hand are high volume datasets please contact me for getting them https://www.researchgate.net/profile/Nicolas_Gutowski. 
 
 ## Graphic drawing mode
 If you want to observe accuracy convergence in real-time (for you or your students) thus you can choose dynamic mode. Otherwise, choose static (it will run faster)
