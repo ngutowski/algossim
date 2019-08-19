@@ -6,8 +6,11 @@ In this version I have implemented most popular MAB and CMAB algorithms (to be c
 ## Datasets
 Algorithms can be simulated over several datasets that I found in Kaggle, and UCI Machine Learning: Control (artifically generated in full features and sparse features), Mushrooms, Statlog, Students Academic Performance, Recommendation System Angers Smart City (RSASM), CNAE-9, contextfree (which is contexte free CNAE-9 version),Covertype, Poker Hand 
 
+## Graphic drawing mode
+If you want to observe accuracy convergence in real-time (for you or your students) thus you can choose dynamic mode. Otherwise, choose static (it will run faster)
+
 ## List of parameters
-* Algorithms: String
+**Algorithms**: String
 - linucb
 - egreedy
 - ucb1
@@ -15,7 +18,7 @@ Algorithms can be simulated over several datasets that I found in Kaggle, and UC
 - lints
 - exp3
 
-* Dataset: String
+**Dataset**: String
 -control
 -controlsp
 -mushrooms
@@ -26,6 +29,12 @@ Algorithms can be simulated over several datasets that I found in Kaggle, and UC
 -contextfree
 -pokerhand
 -covertype
+
+**Horizon**: Integer in [1;T] T=whatever you want ;-) (100,1000,1000,10000, etc.)
+ 
+**Graphic drawing mode** : String 
+- static
+- dynamic
 
 ## How to simulate ? 
 For example :
