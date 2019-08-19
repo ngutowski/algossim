@@ -1,4 +1,5 @@
 # MAB and CMAB Algorithms simulations in several datasets
+This repositories aims at learning most popular MAB and CMAB algorithms and watch how they run. It is interesting for graduate or undergraduate students who want to learn this topic. 
 
 ## Algorithms
 In this version I have implemented most popular MAB and CMAB algorithms (to be completed): UCB1, EXP3, epsilon-Greedy, Thompson Sampling, LinUCB, and Linear Thompson Sampling (also known as Contextual Thompson Sampling).
