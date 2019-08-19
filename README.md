@@ -20,16 +20,16 @@ If you want to observe accuracy convergence in real-time (for you or your studen
 - exp3
 
 **Dataset**: String
--control
--controlsp
--mushrooms
--statlog
--students
--rsasm
--cnae9
--contextfree
--pokerhand
--covertype
+- control
+- controlsp
+- mushrooms
+- statlog
+- students
+- rsasm
+- cnae9
+- contextfree
+- pokerhand
+- covertype
 
 **Horizon**: Integer in [1;T] T=whatever you want ;-) (100,1000,1000,10000, etc.)
  
