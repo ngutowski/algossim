@@ -1,0 +1,18 @@
+0;Proposition d'activites sportive diverses;1;0;0;0;0;0;0;0
+1;Score de votre equipe sportif preferee;1;0;0;0;0;0;0;0
+2;Concert de votre groupe de musique prefere;0;1;0;0;0;0;0;0
+3;Concert d'un orchestre de musique classique;0;1;0;0;0;0;0;0
+4;Pour votre magasin de vetement prefere : Coupon de reduction;0;0;1;0;0;0;0;0
+5;Pour votre librairie : Coupon de reduction;0;0;0;1;0;0;0;0
+6;Pour votre cafe/bar prefere : Coupon de reduction;0;0;0;0;1;0;0;0
+7;Pour votre restaurant prefere : Coupon de reduction;0;0;0;0;1;0;0;0
+8;Exposition sur votre auteur litteraire prefere;0;0;0;1;0;0;0;0
+9;Prochain passage en temps-reel de votre transport en commun;0;0;0;0;0;1;0;0
+10;La meteo geolocalisee dans l'heure qui suit;0;0;0;0;0;1;0;0
+11;Manifestation culturelle scientifique grand public;0;0;0;0;0;0;1;0
+12;Portes ouvertes d'un musee de sciences naturelles;0;0;0;0;0;0;1;0
+13;Taux de pollution et qualite de l'air de votre ville;0;0;0;0;0;1;0;0
+14;Actualites politiques de votre ville ou de votre region;0;0;0;0;0;0;0;1
+15;Actualites Nationales ou Internationales;0;0;0;0;0;0;0;1
+16;Actualites locales;0;0;0;0;0;0;0;1
+17;Atelier sur les technologies numeriques vers le grand public;0;0;0;0;0;0;1;0

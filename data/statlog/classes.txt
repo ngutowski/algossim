@@ -1,0 +1,2 @@
+0;Absence of Heart Disease;1;0
+1;Presence of Heart Disease;0;1

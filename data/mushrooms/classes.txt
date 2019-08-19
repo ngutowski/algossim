@@ -1,0 +1,2 @@
+0;Comestible;1;0
+1;Veneneux;0;1
