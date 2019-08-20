@@ -45,10 +45,9 @@ def execute(nameDataset=str(sys.argv[1]),nameAlgorithm=str(sys.argv[2]),horizon=
         setDyn=setDynamicDrawing(horizon,nA,nameDataset)
         displayCRW=setDyn[0]
         displayDiv=setDyn[1]
-        displayAcc=setDyn[2
-                          ]
+        displayAcc=setDyn[2]
     for i in range (0, m1.getAlgo().horizon):                  
-        #displayRound(i)         
+        displayRound(i)         
         data=run(m1,m1.getAlgo(),nbInstances,reward,acc,i,trial,rwd,storeData,div)        
         acc=data[1]
         reward=data[3]
