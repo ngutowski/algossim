@@ -21,9 +21,13 @@ def execute(nameDataset=str(sys.argv[1]),nameAlgorithm=str(sys.argv[2]),horizon=
     
     storeData=dataStore(nameDataset)   
     
-    m1=m.Model(nameAlgorithm,horizon,storeData[0],storeData[1],storeData[2],storeData[3],storeData[4])
     
-    displayDataInformations(storeData[5],storeData[6],storeData[7],storeData[0],horizon)    
+    (dContexts,nbArms,arms,contexts,ratings,nbArms,nbContexts,nbPred,dArms)=storeData
+     
+    
+    m1=m.Model(nameAlgorithm,horizon,dContexts,nbArms,arms,contexts,ratings)
+    
+    displayDataInformations(nbArms,nbContexts,nbPred,dContexts,horizon)    
     displayAlgorithmInformations(nameAlgorithm,m1.getAlgo())
         
     

@@ -92,11 +92,16 @@ class LinUCB:
             else:
                 ainv=np.linalg.inv(self.Aa[i])                
                 theta=np.dot(ainv, self.ba[i])
+                #print(i)
+                #print(theta.T)
+                
                 rewardExpectancy=np.dot(theta.T, x)
+                #print(rewardExpectancy)
+                
                 rewardDeviation=self.getAlpha() * np.sqrt(np.dot(x.T, ainv.dot(x)))
                 pta=rewardExpectancy + rewardDeviation
                     
-                    #print(str(i)+" - pta: "+str(pta)+" - E: "+str(rewardExpectancy)+" - bonus: "+str(rewardDeviation))
+               # print(str(i)+" - pta: "+str(pta)+" - E: "+str(rewardExpectancy)+" - bonus: "+str(rewardDeviation))
                 if (pta>bestPta):
                     bestPta=pta                    
                     idCls=i                     
@@ -109,9 +114,12 @@ class LinUCB:
          
             
     def updateReward(self,idCtx,idCls,evaluation):        
-        x=self.getX(idCtx)        
+        x=self.getX(idCtx)  
+        #print(x.T)
         self.Aa[idCls] = self.Aa[idCls] + np.outer(x,x)
         self.ba[idCls] = self.ba[idCls] + np.multiply(evaluation, x)
+        #print(idCls)
+        #print(self.ba[idCls].T)
             
      
                         

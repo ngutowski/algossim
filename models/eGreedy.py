@@ -75,7 +75,7 @@ class eGreedy:
     def chooseAction(self,idCtx):    
          idCls=-1         
          bestMua=-1.0
-                     
+         adv=random.randint(0,100)            
         
          for i in range (0, self.getNbClasses()):
              if (self.count<self.getNbClasses()):  
@@ -87,12 +87,15 @@ class eGreedy:
                 
                 break
              else:
-                   adv=random.randint(0,100)
+                  
                    
-                   if(self.getEpsilon()*100<adv):
-                       if (self.getMua(i) >bestMua):
+                   if(self.getEpsilon()*100<=adv):
+                       if (self.getMua(i)>bestMua):
                            bestMua=self.getMua(i)                     
                            idCls=i                     
+                   else:
+                       idCls=random.randint(0,self.getNbClasses()-1)
+                 
                   
          return idCls
           
