@@ -68,7 +68,11 @@ class Exp3:
                 break
              else:                 
                  for i in range (0,self.getNbClasses()):
+                     if (math.isnan(self.getProbabilities(i))):
+                         self.probabilities[i]=1.0
+                     
                      sum += self.getProbabilities(i)
+                     #print(str(i)+" - "+str(self.getProbabilities(i)))                     
                      if (choice <= sum):
                          idCls = i
                          break
