@@ -14,7 +14,7 @@ from scipy.stats import variation
 import random
 import math
 
-from View import viewGraphic,displayRound,displayDataInformations,displayAlgorithmInformations,figure,dynamicView,nameProcessing
+from View import viewGraphic,displayRound,displayDataInformations,displayAlgorithmInformations,figure,dynamicView,nameProcessing,viewDensity
 #from View import plot3D
 
 def execute(nameDataset=str(sys.argv[1]),nameAlgorithm=str(sys.argv[2]),horizon=int(sys.argv[3])):
@@ -65,13 +65,32 @@ def execute(nameDataset=str(sys.argv[1]),nameAlgorithm=str(sys.argv[2]),horizon=
     d2="2D"
     d3="3D"  
     nullTab=[]     
+    #View accuracy evolution over rounds
     viewGraphic(data[0],trial,acc,nullTab,"Accuracy","Accuracy evolution over trials",d2)
+    
+    #View Cumulative Reward evolution over rounds
     viewGraphic(data[3],trial,rwd,nullTab,"Cumulative reward","Cumulative reward evolution over trials",d2)
+    
+    #View Diversity evolution over rounds
     viewGraphic(data[6],trial,div,nullTab,"Diversity","Diversity evolution over trials",d2)
+    
+    
     #viewGraphic(str(data[6])+"-"+str(data[0]),acc,div,"Accyracy-Diversity","Diversity evolution over trials")
+    
+    #View Accuracy-Diversity evolution over rounds
     viewGraphic(str(data[6])+"-"+str(data[0]),trial,div,acc,"Diversity-Accuracy","Diversity-Accuracy over trials",d3)
-    #plot3D(trial,div,acc,"Accuracy Diversity over trials")
-    #print(div)
+              
+    
+    #View density of each feature for each arm in LinUCB only (very unreadable if two much features or classes) try it with control and controlsp
+    #viewDensity(nbArms,m1.getAlgo(),dContexts,nameDataset,1,0)
+    
+    # View densitiy for each features in class 0 in LinUCB only
+    #viewDensity(nbArms,m1.getAlgo(),dContexts,nameDataset,0,0)
+    
+    # View densitiy for each features in class 1 in LinUCB only
+    #viewDensity(nbArms,m1.getAlgo(),dContexts,nameDataset,0,1)
+    
+    
     
 def run(m,algo,nbInstances,reward,acc,i,trial,rwd,storeData,div):
          

@@ -20,7 +20,50 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 from lib.realtimeplot import RealtimePlot
 
+import seaborn as sns
 
+
+def viewDensity(nbArms,algo,d,nameDataset,viewAll,a):
+    
+    if(viewAll==1): 
+        #print("toto")
+        for i in range (0,nbArms):    
+            #print("i: "+str(i))
+            for f in range (0,d):
+                
+                tab=[]        
+                for z in range (1,int(algo.getSelecteda(i))-1):        
+                    tab.append(float(algo.getFeaturesValue(i)[z][f]))
+                labelLine="Class: "+str(i)+" - Features: "+str(f)
+                if(tab[len(tab)-1]!=0.0):
+                    fig=sns.distplot(tab, hist=False,kde=True,kde_kws = {'linewidth': 2},label=labelLine)
+        
+        #select=range (0,len(tab))
+        
+        #viewGraphic(0,select,tab,[],"weight","feature convergence","2D")
+        plt.xlabel("Theta weights")
+        plt.ylabel("Density")
+        plt.title("Density per features for each class in "+str(nameDataset))
+        plt.show(fig)        
+        #print(tab)    
+        
+    else:
+        
+        for f in range (0,d):
+                
+            tab=[]        
+            for z in range (1,int(algo.getSelecteda(a))-1):        
+                tab.append(float(algo.getFeaturesValue(a)[z][f]))
+            labelLine="Classe: "+str(a)+" - Features: "+str(f)
+            if(tab[len(tab)-1]!=0.0):
+                fig=sns.distplot(tab, hist=False,kde=True,kde_kws = {'linewidth': 2},label=labelLine)
+        plt.xlabel("Theta weights")
+        plt.ylabel("Density")
+        plt.title("Density per features for class "+str(a)  +" in "+str(nameDataset))            
+        plt.show(fig)        
+        #print(tab)    
+
+                    
 
 
 def viewGraphic(measure,xTab,yTab,zTab,metric,graphicTitle,dim):

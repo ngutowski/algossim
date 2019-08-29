@@ -21,12 +21,19 @@ class LinUCB:
         self.nbClasses=nbClasses
         self.count=0
         self.Aa=np.zeros((nbClasses,d,d))
-        self.ba=np.zeros((nbClasses,d,1))
+        self.ba=np.zeros((nbClasses,d,1))        
+
+        #Not  necessera for LinUCB policy but usefull for knowing the number of selection of each class        
+        self.selecteda=np.zeros(nbClasses)
+
+        #Not necessar for LinUCB policy but usefull for observing each features density of theta        
+        self.featuresValue={}
+        
         for classeId in range (0, nbClasses):
             self.Aa[classeId] = np.identity(self.d)
-            self.ba[classeId] = np.zeros((self.d,1)).astype(float)
-              
-                     
+            self.ba[classeId] = np.zeros((self.d,1)).astype(float)            
+            self.selecteda[classeId] = 0
+            self.featuresValue[classeId]=[[]]
                  
     def setDeltaAlpha(self, delta):
         if(delta==0):
@@ -69,9 +76,18 @@ class LinUCB:
          
     def getRatings(self):
         return self.ratings
-            
-            
-            
+        
+
+    def getSelecteda(self,classeId):
+        return self.selecteda[classeId]         
+    
+    def setSelecteda(self,classeId):
+        self.selecteda[classeId]+=1
+    
+    def getFeaturesValue(self,classeId):
+        return self.featuresValue[classeId]
+
+        
     def chooseAction(self,idCtx):    
         idCls=-1         
         bestPta=-1.0
@@ -93,7 +109,8 @@ class LinUCB:
                 ainv=np.linalg.inv(self.Aa[i])                
                 theta=np.dot(ainv, self.ba[i])
                 #print(i)
-                #print(theta.T)
+                #print(theta.T)               
+                
                 
                 rewardExpectancy=np.dot(theta.T, x)
                 #print(rewardExpectancy)
@@ -104,10 +121,11 @@ class LinUCB:
                # print(str(i)+" - pta: "+str(pta)+" - E: "+str(rewardExpectancy)+" - bonus: "+str(rewardDeviation))
                 if (pta>bestPta):
                     bestPta=pta                    
-                    idCls=i                     
+                    idCls=i                                       
                 elif (pta==bestPta):
-                    idCls=random.randint(0,self.getNbClasses()-1)
-             
+                    idCls=random.randint(0,self.getNbClasses()-1)        
+               
+        
         return idCls
          
     
@@ -118,8 +136,15 @@ class LinUCB:
         #print(x.T)
         self.Aa[idCls] = self.Aa[idCls] + np.outer(x,x)
         self.ba[idCls] = self.ba[idCls] + np.multiply(evaluation, x)
-        #print(idCls)
-        #print(self.ba[idCls].T)
+        
+        ainv=np.linalg.inv(self.Aa[idCls])                
+        theta=np.dot(ainv, self.ba[idCls])          
+        
+        
+        #Not necessar for LinUCB policy but usefull for observing each features density of theta        
+        self.featuresValue[idCls].append(theta)            
+        #Not necessar for LinUCB policy but usefull for observing each features density of theta        
+        self.setSelecteda(idCls)
             
      
                         
