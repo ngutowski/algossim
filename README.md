@@ -42,15 +42,15 @@ If you want to observe accuracy convergence in real-time (for you or your studen
 ## How to simulate ? 
 For example :
 - to simulate LinUCB algorithm in Control dataset up to horizon 2100 and watch dynamic graphic drawing you need to open a terminal and enter:
-python main.py control linucb 2100 dynamic
+python execute.py control linucb 2100 dynamic
 
 - to simulate epsilon Greedy algorithm in Mushrooms dataset up to horizon 3000 and only watch the final graphic (not dynamically) you need to open a terminal and enter:
-python main.py mushroom egreedy 3000 static
+python execute.py mushroom egreedy 3000 static
 
 - to simulate UCB1 algorithm in Statlog dataset up to horizon 10000 and watch dynamic graphic drawing you need to open a terminal and enter:
-python main.py statlog ucb1 10000 dynamic
+python execute.py statlog ucb1 10000 dynamic
 
 - to simulate Thompson Sampling algorithm in Mushrooms dataset up to horizon 2000 and watch dynamic graphic drawing you need to open a terminal and enter:
-python main.py statlog ts 10000 dynamic
+python execute.py statlog ts 10000 dynamic
 
 
