@@ -1,59 +1,44 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Aug  9 23:21:27 2019
+from util.FilesLoader import FilesLoader
 
-@author: gutowski
-"""
 
-import util.FilesLoader as fl
+def data_store(name_dataset):
+    classes = "./data/%s/classes.txt" % name_dataset
+    descriptions = "./data/%s/descriptions.txt" % name_dataset
+    predictions = "./data/%s/predictions.txt" % name_dataset
 
-def dataStore(nameDataset):
-    a="./data/%s/classes.txt"%nameDataset
-    x="./data/%s/descriptions.txt"%nameDataset
-    p="./data/%s/predictions.txt"%nameDataset
-        
-    fArms=fl.FilesLoader(a)
-    storeArms=fArms.loadFile()    
-    arms=[]    
-    resArms=fArms.processFileArms(storeArms)    
-    arms=resArms[2]
-    nbArms=resArms[1]
-    dArms=resArms[0]
-        
-    #print(arms[0].getArmId())
-    #print(arms[0].getArmName())
-    #print(arms[0].getArmFeat())
-    
-    
-    
-    fContexts=fl.FilesLoader(x)
-    storeContexts=fContexts.loadFile()
-    contexts=[]    
-    resContexts=fContexts.processFileContexts(storeContexts)    
-    contexts=resContexts[2]
-    nbContexts=resContexts[1]
-    dContexts=resContexts[0]
-       
-    #print(contexts[0].getContextId())
-    #print(contexts[0].getContextFeat())
-         
-        
-    fRatings=fl.FilesLoader(p)
-    storeRatings=fRatings.loadFile()
-        
-        
-    ratings=dict()
-    resRatings=fRatings.processFileRatings(storeRatings,nbContexts,nbArms)
-        
-    ratings=resRatings[0]
-    nbPred=resRatings[1]
-        
-    #print(ratings)
-               
-        
-    fArms.close(storeArms)
-    fRatings.close(storeRatings)
-    fContexts.close(storeContexts)
-        
-    return dContexts,nbArms,arms,contexts,ratings,nbArms,nbContexts,nbPred,dArms
+    f_arms = FilesLoader(classes)
+    store_arms = f_arms.loadFile()
+    res_arms = f_arms.processFileArms(store_arms)
+    arms = res_arms[2]
+    nb_arms = res_arms[1]
+    d_arms = res_arms[0]
+
+    # print(arms[0].getArmId())
+    # print(arms[0].getArmName())
+    # print(arms[0].getArmFeat())
+
+    f_contexts = FilesLoader(descriptions)
+    store_contexts = f_contexts.loadFile()
+    res_contexts = f_contexts.processFileContexts(store_contexts)
+    contexts = res_contexts[2]
+    nb_contexts = res_contexts[1]
+    d_contexts = res_contexts[0]
+
+    # print(contexts[0].getContextId())
+    # print(contexts[0].getContextFeat())
+
+    f_ratings = FilesLoader(predictions)
+    store_ratings = f_ratings.loadFile()
+
+    res_ratings = f_ratings.processFileRatings(store_ratings, nb_contexts, nb_arms)
+
+    ratings = res_ratings[0]
+    nb_pred = res_ratings[1]
+
+    # print(ratings)
+
+    f_arms.close(store_arms)
+    f_ratings.close(store_ratings)
+    f_contexts.close(store_contexts)
+
+    return d_contexts, nb_arms, arms, contexts, ratings, nb_arms, nb_contexts, nb_pred, d_arms
